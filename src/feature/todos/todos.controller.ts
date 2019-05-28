@@ -13,6 +13,9 @@ export class TodosController {
     private readonly todosService: TodosService,
   ) { }
 
+  /**
+   * 创建一条待办事项
+   */
   @Post()
   @HttpCode(200)
   async createTodo(@Req() req: UserRequest, @Body() createTodoDto: CreateTodoDto) {
@@ -26,6 +29,9 @@ export class TodosController {
     };
   }
 
+  /**
+   * 删除一条待办事项
+   */
   @Delete(':_id')
   @HttpCode(204)
 // tslint:disable-next-line: variable-name
@@ -35,6 +41,9 @@ export class TodosController {
     return await this.todosService.deleteOne(account, _id);
   }
 
+  /**
+   * 修补一条待办事项
+   */
   @Patch(':_id')
   @HttpCode(204)
 // tslint:disable-next-line: variable-name
@@ -53,6 +62,9 @@ export class TodosController {
     }
   }
 
+  /**
+   * 获取所有的待办事项
+   */
   @Get()
   async findAll(@Req() req: UserRequest) {
     const account = req.user.account;

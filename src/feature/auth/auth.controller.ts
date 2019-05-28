@@ -11,6 +11,10 @@ export class AuthController {
     private readonly usersService: UsersService,
   ) { }
 
+  /**
+   * 获取一个 Token
+   * @param request 请求对象
+   */
   @Get('token')
   async createToken(@Req() request: Request) {
     // 判断参数是否填写

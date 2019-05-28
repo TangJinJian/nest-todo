@@ -10,6 +10,11 @@ export class TodosService {
     @InjectModel('Todo') private readonly todoModel: Model<Todo>,
   ) { }
 
+  /**
+   * 创建一条待办事项
+   * @param account 账号
+   * @param todo 待办事项内容
+   */
   async createOne(account: string, todo: string) {
     // 查找用户
     const user = await this.userModel.findOne({ account });
@@ -24,6 +29,11 @@ export class TodosService {
     return user.save();
   }
 
+  /**
+   * 删除一条待办事项
+   * @param account 账号
+   * @param _id 待办事项 _id
+   */
 // tslint:disable-next-line: variable-name
   async deleteOne(account: string, _id: string) {
     // 删除指定的待办事项
@@ -36,6 +46,13 @@ export class TodosService {
     });
   }
 
+  /**
+   * 更新一条待办事项
+   * @param account 账号
+   * @param _id 待办事项 _id
+   * @param complete 待办事项是否完成
+   * @param todo 待办事项内容
+   */
 // tslint:disable-next-line: variable-name
   async updateOne(account: string, _id: string, complete?: boolean, todo?: string) {
     // 只有 complete 填写时
@@ -76,6 +93,10 @@ export class TodosService {
     };
   }
 
+  /**
+   * 查询所有的待办事项
+   * @param account 账号
+   */
   async findAll(account: string) {
     const ret = await this.userModel.findOne({ account }, '-_id todos');
     return ret.todos;

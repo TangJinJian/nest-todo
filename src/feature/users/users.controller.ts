@@ -12,6 +12,10 @@ export class UsersController {
     private readonly authService: AuthService,
   ) { }
 
+  /**
+   * 创建一个用户
+   * @param createUserDto 
+   */
   @Post()
   @HttpCode(200)
   async createUser(@Body() createUserDto: CreateUserDto) {

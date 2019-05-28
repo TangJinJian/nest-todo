@@ -1,0 +1,5 @@
+# 生成 JavaScript、热更新文件 的目录
+dist/
+
+# node 模块
+node_modules/

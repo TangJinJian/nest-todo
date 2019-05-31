@@ -135,3 +135,26 @@ Authorization: Bearer <token>
 ]
 ```
 
+## `Docker` 部署
+
+```bash
+# 克隆代码
+git clone https://github.com/TangJinJian/nest-todo.git
+
+# 打开目录
+cd nest-todo
+
+# 安装依赖
+# bcrypt 的安装需要权限，所以需要使用 sudo
+sudo npm i
+
+# 编译生产环境代码
+npm run build
+
+# 编译镜像
+cd /nest-todo && docker rmi tangjinjian/nest-todo:1.0.0 ; docker build --rm -f "Dockerfile" -t tangjinjian/nest-todo:1.0.0 .
+
+# 运行服务
+docker-compose up -d
+```
+

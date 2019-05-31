@@ -16,7 +16,7 @@ services:
     volumes:
       - "/etc/localtime:/etc/localtime"
       - "/nest-todo/todo-mongo:/data/db"
-    ports:
-      - "27017:27017"
+    networks:
+      - lan
 networks:
   lan:

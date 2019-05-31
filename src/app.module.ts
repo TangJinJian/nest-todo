@@ -6,9 +6,21 @@ import { AuthModule } from './feature/auth/auth.module';
 import { MongooseModule } from '@nestjs/mongoose';
 import { TodosModule } from './feature/todos/todos.module';
 
+let mongoHost: string;
+if (process.env.MONGO_HOST) {
+  mongoHost = process.env.MONGO_HOST;
+} else {
+  mongoHost = 'localhost';
+}
+
 @Module({
-  imports: [UsersModule, AuthModule, MongooseModule.forRoot('mongodb://localhost/todo'), TodosModule],
+  imports: [
+    UsersModule,
+    AuthModule,
+    MongooseModule.forRoot(`mongodb://${mongoHost}/todo`),
+    TodosModule,
+  ],
   controllers: [AppController],
   providers: [AppService],
 })
-export class AppModule { }
+export class AppModule {}

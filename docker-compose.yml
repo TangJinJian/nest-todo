@@ -1,0 +1,22 @@
+version: '3.7'
+services:
+  nest-todo:
+    image: "tangjinjian/nest-todo:1.0.0"
+    depends_on:
+      - "todo-mongo"
+    environment:
+      - MONGO_HOST=todo-mongo
+    ports:
+      - "3000:3000"
+    command: ["/nest-todo/wait-for-it.sh", "todo-mongo:27017", "--", "node", "/nest-todo/dist/main.js"]
+    networks:
+      - lan
+  todo-mongo:
+    image: "mongo:4.0.9"
+    volumes:
+      - "/etc/localtime:/etc/localtime"
+      - "/nest-todo/todo-mongo:/data/db"
+    ports:
+      - "27017:27017"
+networks:
+  lan:

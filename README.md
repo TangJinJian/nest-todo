@@ -1,6 +1,8 @@
 # `NestTodo`
 
-待办事项 `RESTful APIs` ，技术上使用 `JWT` 、`MongoDB` 、`Mongoose` ，功能上实现注册、登录、待办事项增删改查
+待办事项 `RESTful APIs` ，技术上使用 `Nest.js` 、`JWT` 、`MongoDB` 、`Mongoose` ，功能上实现注册、登录、待办事项增删改查。
+
+前端部分在 [angular-todo](https://github.com/TangJinJian/angular-todo) 里。
 
 ## 目录说明
 

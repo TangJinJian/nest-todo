@@ -1,4 +1,4 @@
-# `Todo`
+# `NestTodo`
 
 待办事项 `RESTful APIs` ，技术上使用 `JWT` 、`MongoDB` 、`Mongoose` ，功能上实现注册、登录、待办事项增删改查
 
@@ -11,7 +11,7 @@
 
 ```
 # 打开项目目录
-cd todo
+cd nest-todo
 
 # 安装依赖
 $ npm i

@@ -147,7 +147,8 @@ git clone https://github.com/TangJinJian/nest-todo.git
 cd nest-todo
 
 # 安装依赖，请在 Linux 环境下编译安装，因为 Docker Node.js 容器是 Linux 环境
-# bcrypt 的安装需要权限，所以需要使用 sudo
+# Node.js 容器目标平台是 Linux ，所以 bcrypt 编译的目标平台，也必须是 Linux
+# bcrypt 的安装，需要权限，所以需要使用 sudo
 sudo npm i
 
 # 编译生产环境代码

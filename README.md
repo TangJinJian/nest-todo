@@ -11,11 +11,11 @@
 
 ## 使用说明
 
-```
+```bash
 # 打开项目目录
 cd nest-todo
 
-# 安装依赖
+# 安装依赖。如果是在 Linux 下开发，请使用 sudo npm i，因为 bcrypt 的安装需要权限，所以需要使用 sudo
 $ npm i
 
 # 创建 todo-mongo
@@ -146,7 +146,7 @@ git clone https://github.com/TangJinJian/nest-todo.git
 # 打开目录
 cd nest-todo
 
-# 安装依赖
+# 安装依赖，请在 Linux 环境下编译安装，因为 Docker Node.js 容器是 Linux 环境
 # bcrypt 的安装需要权限，所以需要使用 sudo
 sudo npm i
 

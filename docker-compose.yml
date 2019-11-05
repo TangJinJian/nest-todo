@@ -1,8 +1,8 @@
 version: '3.7'
 services:
   nest-todo:
-    image: "tangjinjian/nest-todo:1.0.0"
+    image: "tangjinjian/nest-todo:1.0.1"
     environment:
       - MONGO_HOST=mongo_mongo_1
-    command: ["/nest-todo/wait-for-it.sh", "mongo_mongo_1:27017", "--", "node", "/nest-todo/dist/main.js"]
+      - MONGO_PORT=27017
     network_mode: "lan"

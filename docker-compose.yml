@@ -1,8 +1,10 @@
 version: '3.7'
 services:
   nest-todo:
-    image: "tangjinjian/nest-todo:1.0.1"
+    image: "tangjinjian/nest-todo:1.0.2"
     environment:
       - MONGO_HOST=mongo_mongo_1
       - MONGO_PORT=27017
+      - MONGO_INITDB_ROOT_USERNAME
+      - MONGO_INITDB_ROOT_PASSWORD
     network_mode: "lan"

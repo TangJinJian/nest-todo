@@ -3,3 +3,7 @@ dist/
 
 # node 模块
 node_modules/
+
+# 敏感
+/src/mongo-auth.json
+exec-docker-compose.sh

@@ -20,10 +20,13 @@ $ npm i
 
 # 创建 todo-mongo
 # 如果不会 docker ，可以按照自己的方法，自行创建数据库
-$ docker run --name todo-mongo -d -p 27017:27017 mongo:4.0.9
+$ docker run --name todo-mongo -d -p 27017:27017 mongo:4.2.1
 
-# 启动应用
-$ npm run start
+# 我启动 Webpack 热更新
+$ webpack:hmr
+
+# 再启动这个，然后就可以啦
+$ start:hmr
 ```
 
 
@@ -152,12 +155,13 @@ cd nest-todo
 sudo npm i
 
 # 编译生产环境代码
-npm run build
+npm run prestart:prod
 
 # 编译镜像
-cd /nest-todo && docker rmi tangjinjian/nest-todo:1.0.0 ; docker build --rm -f "Dockerfile" -t tangjinjian/nest-todo:1.0.0 .
+docker build --rm -f "Dockerfile" -t tangjinjian/nest-todo:1.0.3 .
 
 # 运行服务
+# 你必须先修改 
 docker-compose up -d
 ```
 

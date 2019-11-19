@@ -10,12 +10,12 @@ export class UsersService {
   constructor(
     @InjectModel('User') private readonly userModel: Model<User>,
     private readonly password: PasswordService,
-    ) { }
+  ) {}
 
-    /**
-     * 创建一个用户
-     * @param createUserDto 
-     */
+  /**
+   * 创建一个用户
+   * @param createUserDto
+   */
   async create(createUserDto: CreateUserDto): Promise<User> {
     // 加密密码
     const hashPassword = await this.password.hash(createUserDto.password);
@@ -46,7 +46,7 @@ export class UsersService {
 
   async hasUser(account: string): Promise<boolean> {
     // 根据账号查询用户是否存在
-    return await this.userModel.findOne({ account }) !== null;
+    return (await this.userModel.findOne({ account })) !== null;
   }
 
   /**
@@ -55,6 +55,9 @@ export class UsersService {
    * @param password 密码
    */
   async findOneByAccountAndPassword(account: string, password: string) {
-    return await this.userModel.findOne({ account, password: await this.password.hash(password) });
+    return await this.userModel.findOne({
+      account,
+      password: await this.password.hash(password),
+    });
   }
 }

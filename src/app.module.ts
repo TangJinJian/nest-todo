@@ -32,7 +32,10 @@ const {
     UsersModule,
     AuthModule,
     MongooseModule.forRoot(
-      `mongodb://${MONGO_INITDB_ROOT_USERNAME}:${MONGO_INITDB_ROOT_PASSWORD}@${MONGO_HOST}:${MONGO_PORT}/${MONGO_DB}?authSource=admin`,
+      toMongoURL(MONGO_HOST, MONGO_PORT, MONGO_DB, {
+        username: MONGO_INITDB_ROOT_USERNAME,
+        password: MONGO_INITDB_ROOT_PASSWORD,
+      }),
     ),
     TodosModule,
   ],
@@ -40,3 +43,31 @@ const {
   providers: [AppService],
 })
 export class AppModule {}
+
+/**
+ * 转换成 MongoDB 的连接 URL
+ * @param host 主机
+ * @param port 端口
+ * @param db 数据库
+ * @param options 选项
+ */
+function toMongoURL(
+  host: string,
+  port: string,
+  db: string,
+  options?: {
+    username: string;
+    password: string;
+    authSource?: string;
+  },
+): string {
+  // 如果数据库不需要认证
+  if (undefined === options) {
+    return `mongodb://${host}:${port}/${db}`;
+  }
+  return `mongodb://${options.username}:${
+    options.password
+  }@${host}:${port}/${db}?authSource=${
+    options.authSource ? options.authSource : 'admin'
+  }`;
+}

@@ -5,8 +5,7 @@
   "author": "",
   "license": "MIT",
   "scripts": {
-    "webpack:clear": "rm -rf dist ; webpack --config webpack.config.js",
-    "webpack:wclear": "rd /s /q dist & webpack --config webpack.config.js",
+    "webpack:hmr": "rimraf dist && webpack --config webpack.config.js",
     "start:hmr": "node dist/server",
     "commit": "npx git-cz",
     "prestart:prod": "rimraf dist && npm run build",

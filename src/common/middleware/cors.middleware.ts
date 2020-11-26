@@ -11,7 +11,7 @@ export function cors(req: Request, res: Response, next: () => void) {
     if (req.method === 'OPTIONS') {
       res.set({
         'Access-Control-Allow-Methods': 'GET, HEAD, PUT, PATCH, POST, DELETE',
-        'Access-Control-Allow-Headers': 'Content-Type, account, password',
+        'Access-Control-Allow-Headers': 'Content-Type, account, password, Authorization',
       });
       res.status(204).end();
       return;
